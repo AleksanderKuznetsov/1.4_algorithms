@@ -60,7 +60,7 @@ class LinkedList:
             node = node.next
         return array
 
-    def delete(self, val, all):
+    def delete(self, val, all=False):
         """Удаление одного или нескольких узлов"""
         # Если список пустой, закончить:
         if self.head is None:
