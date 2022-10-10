@@ -56,7 +56,7 @@ class LinkedList:
         node = self.head
         while node is not None:
             if node.value == val:
-                array.append(node.value)
+                array.append(node)
             node = node.next
         return array
 
