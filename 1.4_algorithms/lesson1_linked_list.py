@@ -76,7 +76,10 @@ class LinkedList:
                 return
 
         node = self.head
+        # Если удаляем конечные элементы, то в tail записать None
         while node.next is not None:
+            if node.next.next == self.tail:
+                self.tail = None
             # Если значение следующего узла равно искомому - назначить через одно.
             if node.next.value == val and all is False: # Если нужно удалить один элемент
                 node.next = node.next.next
@@ -97,6 +100,8 @@ class LinkedList:
             temp = self.head
             self.head = self.head.next
             temp = None
+            # В tail записать None
+            self.tail = None
         return
 
     def len(self) -> int:
