@@ -79,18 +79,17 @@ class LinkedList:
 
         node = self.head
         while node.next is not None:
-            # Если удаляем конечные элементы, то в tail записать None
-            if node.next == self.tail:
-                self.tail = node
             # Если значение следующего узла равно искомому - назначить через одно.
-            if node.next.value == val and all is False: # Если нужно удалить один элемент
+            if node.next.value == val and all is False:  # Если нужно удалить один элемент
                 node.next = node.next.next
                 return
-            if node.next.value == val and all is True: # Если нужно удалить все элементы
+            if node.next.value == val and all is True:  # Если нужно удалить все элементы
                 node.next = node.next.next
+                self.tail = node  # Назначить хвост текущему узлу
                 continue
             # Назначить текущему элементу следующий для сл. итерации цикла.
             node = node.next
+            self.tail = node  # Назначить хвост текущему узлу
         return
 
     def clean(self):

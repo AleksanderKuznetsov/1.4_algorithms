@@ -59,11 +59,10 @@ class TestWork(unittest.TestCase):
         s_list.add_in_tail(Node(55))
         s_list.add_in_tail(Node(55))
         s_list.add_in_tail(Node(128))
-        s_list.add_in_tail(Node(128))
 
         s_list.delete(55, True)
         x = linked_array(s_list)
-        self.assertTrue(x == [12, 12, 128, 128])
+        self.assertTrue(x == [12, 12, 128])
         self.assertTrue(s_list.head.value == 12)  # Проверка заголовка
         self.assertTrue(s_list.tail.value == 128)  # Проверка хвоста
 
