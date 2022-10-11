@@ -130,6 +130,7 @@ class LinkedList:
         # Если список пустой.
         if self.head is None:
             self.head = newNode
+            self.tail = newNode
             return
         # Основная логика.
         node = self.head
