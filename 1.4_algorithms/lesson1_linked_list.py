@@ -140,6 +140,13 @@ class LinkedList:
                 self.head = newNode
                 self.head.next = temp
                 break
+
+            # Если значение последнее.
+            if node.value == afterNode and node is self.tail:
+                node.next = newNode
+                self.tail = newNode
+                break
+
             if node.value == afterNode:
                 newNode.next = node.next
                 node.next = newNode
