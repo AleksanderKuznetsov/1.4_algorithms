@@ -48,15 +48,18 @@ class TestWork(unittest.TestCase):
         self.assertTrue(x == [12, 55, 55, 128, 128])
 
         # Удаление всех узлов по значению.
-        s_list.delete(55, True)
+        s_list.delete(128, True)
         x = linked_array(s_list)
-        self.assertTrue(x == [12, 128, 128])
+        self.assertTrue(x == [12, 55, 55])
+        self.assertTrue(s_list.tail is None)  # Проверка хвоста
+
 
         # Clean списка.
         s_list.clean()
         x = linked_array(s_list)
         self.assertTrue(x == [])
-        self.assertTrue(s_list.head is None)
+        self.assertTrue(s_list.head is None)  # Проверка головы
+        self.assertTrue(s_list.tail is None)  # Проверка хвоста
 
         # Поиск всех узлов по конкретному значению.
         # Создать список.
@@ -69,7 +72,7 @@ class TestWork(unittest.TestCase):
         s_list.add_in_tail(Node(128))
 
         x = s_list.find_all(55)
-        self.assertTrue(x == [55, 55])
+        self.assertTrue(len(x) == 2)
 
         # Вычисление текущей длины списка.
         x = s_list.len()
@@ -105,11 +108,13 @@ class TestWork(unittest.TestCase):
 
         # Clean списка.
         s_list.clean()
-        self.assertTrue(s_list.head is None)
+        self.assertTrue(s_list.head is None)  # Проверка головы
+        self.assertTrue(s_list.tail is None)  # Проверка хвоста
 
         # Поиск всех узлов по конкретному значению.
         x = s_list.find_all(55)
-        self.assertTrue(s_list.head is None)
+        self.assertTrue(s_list.head is None)  # Проверка головы
+        self.assertTrue(s_list.tail is None)  # Проверка хвоста
 
         # Вычисление текущей длины списка.
         x = s_list.len()
@@ -157,7 +162,7 @@ class TestWork(unittest.TestCase):
         # Поиск всех узлов по конкретному значению.
         s_list.add_in_tail(Node(12))
         x = s_list.find_all(12)
-        self.assertTrue(x == [12])
+        self.assertTrue(len(x) == 1)
 
         # Вычисление текущей длины списка.
         x = s_list.len()
