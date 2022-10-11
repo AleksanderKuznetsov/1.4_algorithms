@@ -51,7 +51,7 @@ class TestWork(unittest.TestCase):
         s_list.delete(128, True)
         x = linked_array(s_list)
         self.assertTrue(x == [12, 55, 55])
-        self.assertTrue(s_list.tail is None)  # Проверка хвоста
+        self.assertTrue(s_list.tail.value == 55)  # Проверка хвоста
 
 
         # Clean списка.
