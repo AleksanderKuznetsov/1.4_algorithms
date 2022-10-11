@@ -128,7 +128,7 @@ class LinkedList:
         newNode = Node(newNode)
 
         # Если список пустой.
-        if self.head is None:
+        if self.head is None and afterNode is None:
             self.head = newNode
             self.tail = newNode
             return
