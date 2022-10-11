@@ -53,7 +53,6 @@ class TestWork(unittest.TestCase):
         self.assertTrue(x == [12, 55, 55])
         self.assertTrue(s_list.tail.value == 55)  # Проверка хвоста
 
-
         # Clean списка.
         s_list.clean()
         x = linked_array(s_list)

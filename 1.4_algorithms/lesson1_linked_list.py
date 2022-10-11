@@ -80,7 +80,7 @@ class LinkedList:
         node = self.head
         while node.next is not None:
             # Если удаляем конечные элементы, то в tail записать None
-            if node.next.next == self.tail:
+            if node.next == self.tail:
                 self.tail = node
             # Если значение следующего узла равно искомому - назначить через одно.
             if node.next.value == val and all is False: # Если нужно удалить один элемент
