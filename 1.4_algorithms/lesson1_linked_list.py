@@ -153,11 +153,3 @@ class LinkedList:
                 break
             node = node.next
         return
-
-
-
-s_list = LinkedList()
-s_list.insert(None, 63)
-s_list.print_all_nodes()
-print("head", s_list.head)
-print("tail", s_list.tail)
