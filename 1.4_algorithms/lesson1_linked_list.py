@@ -125,31 +125,31 @@ class LinkedList:
         :param newNode: этот элемент вставить.
         """
         # Присвоить переменной новый узел
-        newNode = Node(newNode)
+        _newNode = Node(newNode)
 
         # Если список пустой.
         if self.head is None and afterNode is None:
-            self.head = newNode
-            self.tail = newNode
+            self.head = _newNode
+            self.tail = _newNode
             return
         # Основная логика.
         node = self.head
         while node is not None:  # Цикл работает пока узел не пустой.
             if afterNode is None:  # Если нужно вставить первым узлом
                 temp = self.head
-                self.head = newNode
+                self.head = _newNode
                 self.head.next = temp
                 break
 
             # Если значение последнее.
             if node.value == afterNode and node is self.tail:
-                node.next = newNode
-                self.tail = newNode
+                node.next = _newNode
+                self.tail = _newNode
                 break
 
             if node.value == afterNode:
-                newNode.next = node.next
-                node.next = newNode
+                _newNode.next = node.next
+                node.next = _newNode
                 break
             node = node.next
         return
