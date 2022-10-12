@@ -129,8 +129,8 @@ class LinkedList:
 
         # Если список пустой.
         if self.head is None and afterNode is None:
-            self.head = _newNode
-            self.tail = _newNode
+            self.head = Node(newNode)
+            self.tail = Node(newNode)
             return
         # Основная логика.
         node = self.head
@@ -153,3 +153,4 @@ class LinkedList:
                 break
             node = node.next
         return
+
