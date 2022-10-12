@@ -122,7 +122,7 @@ class TestWork(unittest.TestCase):
         # Вставка узла в середину
         s_list.insert(12, 63)
         x = linked_array(s_list)
-        self.assertTrue(x == [63])
+        self.assertTrue(x == [])
 
         # Вставка узла в начало.
         s_list = LinkedList()  # перезапишем в пустой
