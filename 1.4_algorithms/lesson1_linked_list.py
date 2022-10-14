@@ -153,4 +153,3 @@ class LinkedList:
                 break
             node = node.next
         return
-
