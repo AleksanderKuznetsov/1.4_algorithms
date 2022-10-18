@@ -20,7 +20,7 @@ class LinkedList:
         self.head = None  # Узел-голова списка.
         self.tail = None  # Завершающий узел
 
-    def add_in_tail(self, item: int):
+    def add_in_tail(self, item):
         """Добавить новый узел в конец спиcка"""
         # Если голова пустая - добавить в нее.
         # Если нет - назначить с помощью next значение в указатель на сл.узел.
