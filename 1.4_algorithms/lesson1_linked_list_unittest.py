@@ -56,7 +56,7 @@ class TestWork(unittest.TestCase):
         # Clean списка.
         s_list.clean()
         check = linked_array(s_list)
-        self.assertTrue(check == [])
+        self.assertTrue(len(check) == 0)
         self.assertTrue(s_list.head is None)  # Проверка головы
         self.assertTrue(s_list.tail is None)  # Проверка хвоста
 
@@ -122,13 +122,17 @@ class TestWork(unittest.TestCase):
         # Вставка узла в середину
         s_list.insert(12, 63)
         check = linked_array(s_list)
-        self.assertTrue(check == [])
+        self.assertTrue(len(check) == 0)
 
         # Вставка узла в начало.
         s_list = LinkedList()  # перезапишем в пустой
+        # Создать список с одним узлом для проверки результата.
+        s_list2 = LinkedList()
+        s_list2.add_in_tail(1)
+        # Вставить в пустой список элемент
         s_list.insert(None, 1)
-        check = linked_array(s_list)
-        self.assertTrue(check == [1])
+        self.assertTrue(s_list.head.value == s_list2.head)
+        self.assertTrue(s_list.tail.value == s_list2.tail)
 
     def test_one_element(self):
         """
@@ -145,13 +149,13 @@ class TestWork(unittest.TestCase):
         # Удаление одного узла по значению.
         s_list.delete(12, False)
         check = linked_array(s_list)
-        self.assertTrue(check == [])
+        self.assertTrue(len(check) == 0)
 
         # Удаление всех узлов по значению.
         s_list.add_in_tail(Node(12))
         s_list.delete(12, True)
         check = linked_array(s_list)
-        self.assertTrue(check == [])
+        self.assertTrue(len(check) == 0)
 
         # Clean списка.
         s_list.add_in_tail(Node(12))

@@ -7,8 +7,8 @@ class Node:
     """
     Класс узла
     """
-    def __init__(self, v):
-        self.value = v  # Значение узла.
+    def __init__(self, item: int):
+        self.value = item  # Значение узла.
         self.next = None  # Связь. Следующий узел.
 
 
@@ -20,7 +20,7 @@ class LinkedList:
         self.head = None  # Узел-голова списка.
         self.tail = None  # Завершающий узел
 
-    def add_in_tail(self, item):
+    def add_in_tail(self, item: int):
         """Добавить новый узел в конец спиcка"""
         # Если голова пустая - добавить в нее.
         # Если нет - назначить с помощью next значение в указатель на сл.узел.
@@ -33,11 +33,11 @@ class LinkedList:
     def print_all_nodes(self):
         """Метод отладочного вывода списка"""
         node = self.head
-        while node != None:
+        while node is not None:
             print(node.value)
             node = node.next
 
-    def find(self, val):
+    def find(self, val: int):
         """Найти нужный узел по заданному значению"""
         node = self.head
         while node is not None:
@@ -46,7 +46,7 @@ class LinkedList:
             node = node.next
         return None
 
-    def find_all(self, val) -> list:
+    def find_all(self, val: int) -> list:
         """
         Найти все узлы по заданному значению/
         :param val: Искомое значение
@@ -60,7 +60,7 @@ class LinkedList:
             node = node.next
         return array
 
-    def delete(self, val, all=False):
+    def delete(self, val: int, all=False):
         """Удаление одного или нескольких узлов"""
         # Если список пустой, закончить:
         if self.head is None:
@@ -98,12 +98,10 @@ class LinkedList:
         :return: пусто
         """
         while self.head is not None:
-            temp = self.head
-            self.head = self.head.next
-            temp = None
+            self.head = None
             # В tail записать None
             self.tail = None
-        return
+        # return
 
     def len(self) -> int:
         """
@@ -125,31 +123,31 @@ class LinkedList:
         :param newNode: этот элемент вставить.
         """
         # Присвоить переменной новый узел
-        _newNode = Node(newNode)
+        new_node = Node(newNode)
 
         # Если список пустой.
         if self.head is None and afterNode is None:
-            self.head = _newNode
-            # self.tail = _newNode
+            self.head = new_node
+            self.tail = new_node
             return
         # Основная логика.
         node = self.head
         while node is not None:  # Цикл работает пока узел не пустой.
             if afterNode is None:  # Если нужно вставить первым узлом
                 temp = self.head
-                self.head = _newNode
+                self.head = new_node
                 self.head.next = temp
                 break
 
             # Если значение последнее.
             if node.value == afterNode and node is self.tail:
-                node.next = _newNode
-                self.tail = _newNode
+                node.next = new_node
+                self.tail = new_node
                 break
 
             if node.value == afterNode:
-                _newNode.next = node.next
-                node.next = _newNode
+                new_node.next = node.next
+                node.next = new_node
                 break
             node = node.next
         return
